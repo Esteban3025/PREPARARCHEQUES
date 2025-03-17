@@ -1,0 +1,18 @@
+git add . : Agrega todos los cambios realizados en el proyecto.
+git commit -m "mensaje de commit" : Crea un commit con un mensaje personalizado.
+git push origin nombre-branch : Envía los cambios al repositorio remoto.
+Crear una rama
+
+git branch nombre-branch : Crea una nueva rama en el repositorio local.
+git checkout nombre-branch : Selecciona la rama deseada para trabajar.
+Unir cambios
+
+git merge nombre-branch : Une la rama deseada con la rama actual.
+Ver el historial de cambios
+
+git log : Muestra el historial de commits realizados en el proyecto.
+git status : Muestra el estado actual del proyecto, incluyendo cambios pendientes y conflictos.
+Eliminar un repositorio
+
+git rm --cached nombre-archivo : Elimina un archivo del repositorio local y del índice de Git.
+git push origin --delete nombre-branch : Elimina una rama en el repositorio remoto.

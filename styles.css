@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu";
+    margin: auto;
+}
+
+
+#app {
+    text-align: center;
+    padding-top: 3rem;
+    width: 35rem;
+    height: 15rem;
+    margin: auto;
+    gap: 2rem;
+}
+
+#label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+#preview {
+    height: 525px;
+    background-color: #aaa;
+    border-top: 1px solid black;
+    width: 1280px;
+}
+
+#code-input {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    width: 20rem;
+    font-size: 1rem;
+    height: 2rem;
+}
+
+ #btn {
+    height: 2rem;
+    width: 5rem;
+    cursor: pointer;
+}
+
+#delete-btn {
+    height: 2rem;
+    cursor: pointer;
+}
+
+#date {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#image-input {
+    height: 2rem;
+    cursor: pointer;
+}
+
+#image-inputs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#download {
+    height: 1.6rem;
+    cursor: pointer;
+    margin-left: 2rem;
+    padding: 0;
+}
+
+#result-image {
+    display: flex;
+    justify-content: center;
+}

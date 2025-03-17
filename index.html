@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacer cheques</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main id="main">
+
+    <div id="app">
+        <h1 id="title">Hacer cheques</h1>
+        <p id="date">Fecha:</p>
+        <label for="codigo" id="label"></label>
+            <p id="label-text">CODIGO:</p>
+            <input type="text" name="code" id="code-input">
+            <button id="btn">Enviar</button>
+            <button id="delete-btn">Borrar campos</button>
+    </div>
+
+
+    <div id="image-inputs">
+        <label for="image-input"></label>
+        <input
+                type="file"
+                id="image-input"
+                name="image-input"
+                accept="image/*">
+
+        <button id="download">Descargar</button>
+    </div>
+
+
+
+    <div id="result-image">
+        <img id="preview" >
+    </div>
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
