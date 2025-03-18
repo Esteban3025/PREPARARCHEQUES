@@ -6,79 +6,49 @@
 
 body {
     background-color: #333;
-    color: #fff;
-    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu";
-    margin: auto;
+    color: #eee;
 }
-
 
 #app {
-    text-align: center;
-    padding-top: 3rem;
-    width: 35rem;
-    height: 15rem;
-    margin: auto;
-    gap: 2rem;
-}
-
-#label {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding-top: 1rem;
+    text-align: center;
 }
 
-#preview {
-    height: 525px;
-    background-color: #aaa;
-    border-top: 1px solid black;
-    width: 1280px;
+#checkbox-container {
+    display: flex;
+    gap: 1rem;
 }
 
-#code-input {
+#make-btn, #download-btn, #reset-btn {
+    background-color: #eee;
+    color: #222;
+    border: none;
+    border-radius: 5px;
     padding: 0.5rem;
-    margin-right: 1rem;
+    cursor: pointer;
+}
+
+#text-input {
+    background-color: #eee;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
     width: 20rem;
-    font-size: 1rem;
-    height: 2rem;
-}
-
- #btn {
-    height: 2rem;
-    width: 5rem;
-    cursor: pointer;
-}
-
-#delete-btn {
-    height: 2rem;
-    cursor: pointer;
-}
-
-#date {
     font-size: 1.5rem;
-    font-weight: 500;
 }
 
-#image-input {
-    height: 2rem;
-    cursor: pointer;
+#canvas {
+    border: 3px solid #eee;
 }
 
-#image-inputs {
+#canvas-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
-}
-
-#download {
-    height: 1.6rem;
-    cursor: pointer;
-    margin-left: 2rem;
-    padding: 0;
-}
-
-#result-image {
-    display: flex;
-    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
 }

@@ -3,43 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacer cheques</title>
+    <title>Crear cheques.</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <main id="main">
-
+<body onload="draw();">
     <div id="app">
-        <h1 id="title">Hacer cheques</h1>
-        <p id="date">Fecha:</p>
-        <label for="codigo" id="label"></label>
-            <p id="label-text">CODIGO:</p>
-            <input type="text" name="code" id="code-input">
-            <button id="btn">Enviar</button>
-            <button id="delete-btn">Borrar campos</button>
+        <label for="text"></label>
+        <h1 id="title">Crear cheques</h1>
+        <input type="text" id="text-input" placeholder="Ingrese el los codigos aqui" required>
+        <div id="checkbox-container">
+            <button type="submit" id="make-btn">Crear</button>
+            <button type="button" id="download-btn">Descargar</button>
+            <button type="button" id="reset-btn">Reset</button>
+        </div>
     </div>
 
-
-    <div id="image-inputs">
-        <label for="image-input"></label>
-        <input
-                type="file"
-                id="image-input"
-                name="image-input"
-                accept="image/*">
-
-        <button id="download">Descargar</button>
+    <div id="canvas-container">
+        <canvas id="canvas" width="150" height="150"></canvas>
     </div>
-
-
-
-    <div id="result-image">
-        <img id="preview" >
-    </div>
-    </main>
-
-
-
-    <script src="script.js"></script>
+    <script src="script.js"></script>   
 </body>
 </html>
