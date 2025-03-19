@@ -4,37 +4,62 @@ const makeBtn = document.getElementById('make-btn');
 const downloadBtn = document.getElementById('download-btn');
 const resetBtn = document.getElementById('reset-btn');
 const canvas = document.getElementById('canvas');
+const canvasContainer = document.getElementById('canvas-container');
 const date = new Date();
 const month = date.getMonth() + 1;
 const day = date.getDate();
 const year = date.getFullYear();
 const today = `${day}/${month}/${year}`;
 
+
+
 // funciion que imprime la fecha en el canvas
-const printDateOntheCanvas = () => {
-    const cty = canvas.getContext("2d");
-    cty.font = "1rem Times New Roman";
+const printDateOntheCanvas = (cty) => {
+    cty.font = "20px Times New Roman";
     cty.fillStyle = "white";
     cty.textAlign = "center";
     cty.fillText(today, 50, 30);
 }
 
-// funcion para dibujar los codigos en el canvas
-function draw() {
-    const ctx = canvas.getContext("2d");
-    canvas.width = 350;
-    const x = canvas.width / 2;
+const printCodesOntheCanvas = (ctx, index) => {
     const text = makeArray(textInput.value); // sigue siendo un array para usarlo como array
-    const finalText = text.join(' '); // convie1rte el array en texto para imprimirlo en el canvas
-    console.log(text);
-
-    ctx.font = "1rem Times New Roman";
+    const textfinal = text[index];
+    console.log(textfinal + " Esto es el contenido de textfinal");
+    ctx.font = "20px Times New Roman";
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
-    ctx.fillText(finalText, x, 30);
+    ctx.fillText(textfinal, 250, 60);
+}
 
-    printDateOntheCanvas();
+// funcion para dibujar la fecha y 1 codigo al canvas
+function draw() {
+    checkError();
+    canvasContainer.innerHTML = '';
+    const text = makeArray(textInput.value);
+    for (let i = 0; i < text.length; i++) {
+        createCanvas(i);
+        console.log("Canvas creado " + i);
+    }
     textInput.value = '';
+    return;
+}
+
+// crear mutiples canvas
+function createCanvas(i) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext("2d");
+    canvas.id = 'canvas';
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = 350 * dpr;
+    canvas.height = 150 * dpr;
+    ctx.scale(dpr, dpr);
+    canvasContainer.appendChild(canvas);
+    const text = makeArray(textInput.value); // sigue siendo un array para usarlo como array
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    printDateOntheCanvas(ctx);
+    printCodesOntheCanvas(ctx, i);
+    return;
 }
 
 // Funcion para almacenar los codigos
@@ -53,27 +78,26 @@ function cleanInputString(str) {
     return str.replace(regex, '');
 }
 
-// Funcion para resetear el canvas
+// Funcion para resetear el canvas y eliminar los canvas
 function resetCanvas() {
-    const ctx = canvas.getContext("2d");
     textInput.value = '';
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvasContainer.innerHTML = '';
 }
 
 const checkError = () => {
     if (textInput.value === '' || textInput.value.length < 5) {
         alert('Ingrese al menos 1 codigo de 5 digitos');
+        textInput.value = '';
         return;
     }
-    draw();
 }
-
+resetCanvas();
 // Apartado para addEventListener
 resetBtn.addEventListener('click', resetCanvas);
-makeBtn.addEventListener('click', checkError);
+makeBtn.addEventListener('click', draw);
 textInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
-        checkError();
+        draw();
     }
 });
 

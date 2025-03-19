@@ -45,11 +45,15 @@ body {
 
 #canvas {
     border: 3px solid #eee;
+    margin-top: 1rem;
 }
 
 #canvas-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin-top: 3rem;
 }
+
+  
