@@ -5,60 +5,58 @@ const downloadBtn = document.getElementById('download-btn');
 const resetBtn = document.getElementById('reset-btn');
 const canvas = document.getElementById('canvas');
 const canvasContainer = document.getElementById('canvas-container');
+const lengthValue = document.getElementById('length-value');
+const length = document.getElementById('length');
+const image = document.getElementById('img');
 const date = new Date();
 const month = date.getMonth() + 1;
 const day = date.getDate();
 const year = date.getFullYear();
-const today = `${day}/${month}/${year}`;
-
-
+const today = `${day}/0${month}/${year}`;
 
 // funciion que imprime la fecha en el canvas
 const printDateOntheCanvas = (cty) => {
-    cty.font = "20px Times New Roman";
-    cty.fillStyle = "white";
+    cty.font = "530 24px Calibri";
+    cty.fillStyle = "black";
     cty.textAlign = "center";
-    cty.fillText(today, 50, 30);
+    cty.fillText(today, 1020, 119);
 }
 
-const printCodesOntheCanvas = (ctx, index) => {
-    const text = makeArray(textInput.value); // sigue siendo un array para usarlo como array
-    const textfinal = text[index];
-    console.log(textfinal + " Esto es el contenido de textfinal");
-    ctx.font = "20px Times New Roman";
-    ctx.fillStyle = "white";
+//Funcion para crear dinamicamente los codigos
+const printCodesOntheCanvas = (ctx, textfinal) => {
+    console.log("Esto es el text final en la funcion" + textfinal);
+    ctx.font = "530 24px Calibri";
+    ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText(textfinal, 250, 60);
+    ctx.fillText(textfinal, 1130, 60);
 }
 
-// funcion para dibujar la fecha y 1 codigo al canvas
+// funcion para dibujar en el canvas
 function draw() {
     checkError();
     canvasContainer.innerHTML = '';
-    const text = makeArray(textInput.value);
+    text = makeArray(textInput.value);
     for (let i = 0; i < text.length; i++) {
-        createCanvas(i);
-        console.log("Canvas creado " + i);
+        let textfinal = text[i];
+        createCanvas(i, textfinal);
+        console.log("text = " + text);
     }
     textInput.value = '';
     return;
 }
 
 // crear mutiples canvas
-function createCanvas(i) {
+function createCanvas(i, textfinal) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext("2d");
+    const img = new Image();
     canvas.id = 'canvas';
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = 350 * dpr;
-    canvas.height = 150 * dpr;
-    ctx.scale(dpr, dpr);
+    canvas.width = 1280;
+    canvas.height = 525;
     canvasContainer.appendChild(canvas);
-    const text = makeArray(textInput.value); // sigue siendo un array para usarlo como array
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    printDateOntheCanvas(ctx);
-    printCodesOntheCanvas(ctx, i);
+    for (i; i < makeArray(textInput.value).length; i++) {
+        background(ctx, img, i, textfinal);
+    }
     return;
 }
 
@@ -81,17 +79,41 @@ function cleanInputString(str) {
 // Funcion para resetear el canvas y eliminar los canvas
 function resetCanvas() {
     textInput.value = '';
+    lengthValue.innerText = "";
+    length.style.display = "none";
     canvasContainer.innerHTML = '';
 }
 
+
+//funcion para comprobar errores
 const checkError = () => {
     if (textInput.value === '' || textInput.value.length < 5) {
         alert('Ingrese al menos 1 codigo de 5 digitos');
         textInput.value = '';
         return;
     }
+    printlength();
 }
+
+// funcion que imprime en la pantalla el numero de canvas creados
+const printlength = () => {
+    lengthValue.innerText = makeArray(textInput.value).length;
+    length.style.display = "block";
+}
+
+//Funcion para usar la imagen de los cheques en el canvas
+function background(ctx, img, i, textfinal) {
+    canvas.id = 'canvas';
+    img.onload = () => {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        printDateOntheCanvas(ctx);
+        printCodesOntheCanvas(ctx, textfinal);
+    }
+    img.src = "img/cheque.JPG";
+}
+  
 resetCanvas();
+
 // Apartado para addEventListener
 resetBtn.addEventListener('click', resetCanvas);
 makeBtn.addEventListener('click', draw);
