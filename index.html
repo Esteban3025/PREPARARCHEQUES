@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
-<body onload="resetCanvas()">
+<body>
 
     <div id="logo-container">
-        <img id="logo" src="img/Logo-castrol.svg" alt="Aqui va el logo">
+        <img id="logo" src="img/Castrol_logo_2023.svg.png" alt="Aqui va el logo">
     </div>
 
     <div id="app">
         <label for="text"></label>
         <h1 id="title">Generador de cheques</h1>
         <div id="input-container">
-        <input type="text" id="text-input" placeholder="Ingrese el los codigos aqui" required>
+        <input type="text" id="text-input" placeholder="Ingrese los codigos aqui" required>
         <p id="length">Longitud: <span id="length-value"></span></p>
         </div>
         <div id="checkbox-container">
@@ -26,9 +26,11 @@
             <button type="button" id="reset-btn">Reset</button>
         </div>
     </div>
+
     <div id="canvas-container">
         <canvas id="canvas" width="1280" height="525"></canvas>
     </div>
+    
     <script src="script.js"></script>   
 </body>
 </html>

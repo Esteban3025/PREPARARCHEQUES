@@ -14,6 +14,8 @@ const day = date.getDate();
 const year = date.getFullYear();
 const today = `${day}/0${month}/${year}`;
 
+length.style.display = "none";
+
 // funciion que imprime la fecha en el canvas
 const printDateOntheCanvas = (cty) => {
     cty.font = "530 24px Calibri";
@@ -24,7 +26,6 @@ const printDateOntheCanvas = (cty) => {
 
 //Funcion para crear dinamicamente los codigos
 const printCodesOntheCanvas = (ctx, textfinal) => {
-    console.log("Esto es el text final en la funcion" + textfinal);
     ctx.font = "530 24px Calibri";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
@@ -39,7 +40,6 @@ function draw() {
     for (let i = 0; i < text.length; i++) {
         let textfinal = text[i];
         createCanvas(i, textfinal);
-        console.log("text = " + text);
     }
     textInput.value = '';
     return;
@@ -47,7 +47,7 @@ function draw() {
 
 // crear mutiples canvas
 function createCanvas(i, textfinal) {
-    const canvas = document.createElement('canvas');
+    const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const img = new Image();
     canvas.id = 'canvas';
@@ -55,7 +55,7 @@ function createCanvas(i, textfinal) {
     canvas.height = 525;
     canvasContainer.appendChild(canvas);
     for (i; i < makeArray(textInput.value).length; i++) {
-        background(ctx, img, i, textfinal);
+        background(ctx, img, textfinal, canvas, i);
     }
     return;
 }
@@ -102,8 +102,7 @@ const printlength = () => {
 }
 
 //Funcion para usar la imagen de los cheques en el canvas
-function background(ctx, img, i, textfinal) {
-    canvas.id = 'canvas';
+function background(ctx, img, textfinal, canvas, i) {
     img.onload = () => {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         printDateOntheCanvas(ctx);
@@ -111,10 +110,23 @@ function background(ctx, img, i, textfinal) {
     }
     img.src = "img/cheque.JPG";
 }
-  
-resetCanvas();
+
+// Funcion para descargar todos los canvas
+const download = () => {
+    const canvases = canvasContainer.querySelectorAll("canvas");
+    canvases.forEach((canvas, index) => {
+        const image = canvas.toDataURL("image/png");
+        console.log(image);
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = `chequeSomos ${index}.png`;
+        link.click();
+    });
+};
+
 
 // Apartado para addEventListener
+downloadBtn.addEventListener('click', () => download(canvas));
 resetBtn.addEventListener('click', resetCanvas);
 makeBtn.addEventListener('click', draw);
 textInput.addEventListener('keydown', e => {
@@ -122,6 +134,3 @@ textInput.addEventListener('keydown', e => {
         draw();
     }
 });
-
-
-
