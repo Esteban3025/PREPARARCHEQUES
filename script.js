@@ -103,6 +103,8 @@ const printlength = () => {
 
 //Funcion para usar la imagen de los cheques en el canvas
 function background(ctx, img, textfinal, canvas, i) {
+    img.crossOrigin = "anonymous"; 
+    img.src = "URL_DE_LA_IMAGEN";
     img.onload = () => {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         printDateOntheCanvas(ctx);
