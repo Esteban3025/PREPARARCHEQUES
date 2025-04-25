@@ -13,6 +13,7 @@ const month = date.getMonth() + 1;
 const day = date.getDate();
 const year = date.getFullYear();
 const today = `${day}/0${month}/${year}`;
+let make = false;
 
 length.style.display = "none";
 
@@ -35,6 +36,7 @@ const printCodesOntheCanvas = (ctx, textfinal) => {
 // funcion para dibujar en el canvas
 function draw() {
     checkError();
+    make = true;
     canvasContainer.innerHTML = '';
     text = makeArray(textInput.value);
     for (let i = 0; i < text.length; i++) {
@@ -53,6 +55,7 @@ function createCanvas(i, textfinal) {
     canvas.id = 'canvas';
     canvas.width = 1280;
     canvas.height = 525;
+
     canvasContainer.appendChild(canvas);
     for (i; i < makeArray(textInput.value).length; i++) {
         background(ctx, img, textfinal, canvas, i);
@@ -115,6 +118,10 @@ function background(ctx, img, textfinal, canvas, i) {
 
 // Funcion para descargar todos los canvas
 const download = () => {
+    if (!make) {
+        alert("Crea unos cheques primero");
+        return
+    };
     const canvases = canvasContainer.querySelectorAll("canvas");
     canvases.forEach((canvas, index) => {
         const image = canvas.toDataURL("image/png");
@@ -124,6 +131,7 @@ const download = () => {
         link.download = `chequeSomos ${index}.png`;
         link.click();
     });
+    make = false;
 };
 
 
