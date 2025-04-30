@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOMOS Castrol generador de cheques</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/a.ico" type="image/x-icon">
 </head>
-<body>
+<bod>
+
+    <div id="tools">
+        <a href="correo.html" class="link">Crear correos</a>
+    </div>
 
     <div id="logo-container">
-        <img id="logo" src="img/Castrol_logo_2023.svg.png" alt="Aqui va el logo">
+        <img id="logo" src="./img/Castrol_logo_2023.svg.png" alt="Aqui va el logo">
     </div>
 
     <div id="app">
         <label for="text"></label>
-        <h1 id="title">Generador de cheques</h1>
+        <h1 id="title">Generador de cheques SOMOS</h1>
         <div id="input-container">
         <input type="text" id="text-input" placeholder="Ingrese los codigos aqui" required>
         <p id="length">Longitud: <span id="length-value"></span></p>
@@ -27,10 +31,12 @@
         </div>
     </div>
 
+    
+
     <div id="canvas-container">
         <canvas id="canvas" width="1280" height="525"></canvas>
     </div>
     
-    <script src="script.js"></script>   
+    <script src="/script.js" type="module"></script>   
 </body>
 </html>

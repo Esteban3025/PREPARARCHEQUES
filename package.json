@@ -1,0 +1,23 @@
+{
+  "name": "crear-cheques",
+  "version": "1.0.0",
+  "description": "Crear cheques SOMOS",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Esteban3025/PREPARARCHEQUES.git"
+  },
+  "author": "Esteban Galeano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Esteban3025/PREPARARCHEQUES/issues"
+  },
+  "homepage": "https://github.com/Esteban3025/PREPARARCHEQUES#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

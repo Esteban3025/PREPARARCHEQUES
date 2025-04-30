@@ -94,3 +94,34 @@ body {
 #logo {
     width: 20rem;
 }
+
+.link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding-left: 4rem;
+    margin-top: 1rem;
+}
+
+#tools {
+    border-bottom: 3px solid white;
+    display: flex;
+    align-items: center;
+    
+}
+
+#correo-btn {
+    background-color: var(--font-color);
+    color: var(--btn-color);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#correo-body {
+    background-color: white;
+    color: black;
+    margin-top: 1rem;
+}

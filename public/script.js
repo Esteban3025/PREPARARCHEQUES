@@ -15,6 +15,7 @@ const year = date.getFullYear();
 const today = `${day}/0${month}/${year}`;
 let make = false;
 
+
 length.style.display = "none";
 
 // funciion que imprime la fecha en el canvas
@@ -38,7 +39,7 @@ function draw() {
     checkError();
     make = true;
     canvasContainer.innerHTML = '';
-    text = makeArray(textInput.value);
+    let text = makeArray(textInput.value);
     for (let i = 0; i < text.length; i++) {
         let textfinal = text[i];
         createCanvas(i, textfinal);

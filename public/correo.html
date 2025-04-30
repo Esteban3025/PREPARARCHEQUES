@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacer Correo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./img/a.ico" type="image/x-icon">
+</head>
+<body>
+
+    <div id="tools">
+        <a href="index.html" class="link">Volver a inicio</a>
+    </div>
+
+    <div id="app">
+        <h1>Crear correo para el cheque</h1>
+        <div id="checkbox-container">
+            Id:<input id="id" type="number" value="0" min="0">
+            Puntos:<input id="pts" type="number" value="0">
+            <button type="button" id="correo-btn">Crear correo</button>
+            <button type="button" id="reset-btn">Reset</button>
+        </div>
+    </div>
+
+    <div id="correo-body"></div>
+
+    <script type="module" src="./correo.js"></script>
+</body>
+</html>
