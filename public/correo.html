@@ -17,7 +17,7 @@
         <h1>Crear correo para el cheque</h1>
         <div id="checkbox-container">
             Id:<input id="id" type="number" value="0" min="0">
-            Puntos:<input id="pts" type="number" value="0">
+            Puntos:<input id="pts" type="text" value="0">
             <button type="button" id="correo-btn">Crear correo</button>
             <button type="button" id="reset-btn">Reset</button>
         </div>
@@ -26,5 +26,6 @@
     <div id="correo-body"></div>
 
     <script type="module" src="./correo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.8.1"></script>
 </body>
 </html>

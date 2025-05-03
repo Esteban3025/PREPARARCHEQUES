@@ -11,8 +11,16 @@ const makeCorreo = () => {
     const codigo = id.value;
     const codigoSomos = (codigoSomos) => codigoSomos.id === codigo;
 
+    const num = new AutoNumeric('#pts',{decimalCharacter: ',', decimalPlaces: 0, digitGroupSeparator: '.'}).getNumber();
     const puntos = pts.value;
-    const cheques = Math.floor(puntos / 250000);
+    // document.querySelector('#pts').addEventListener('keyup',() =>{
+    // console.log(num.getNumber())
+    // })
+    const cheques = Math.floor(num / 250000);
+    // console.log("Puntos", puntos);
+    // console.log('Chques', cheques);
+    // console.log('Este es num', num);
+    // console.log('Este es el valor de puntos', pts.value);
 
     const idCorrecto = locales.findIndex(codigoSomos);
     const local = locales[idCorrecto];
@@ -23,7 +31,7 @@ const makeCorreo = () => {
         reset();
         return
     }
-    if (pts.value < 250000) {
+    if (num < 250.000) {
         alert('Puntos insuficientes para continuar..');
         reset();
         return
@@ -51,7 +59,7 @@ const makeCorreo = () => {
 
 const reset = () => {
     correo.innerHTML = ``;
-    pts.value = 0;
+    pts.value = '';
     id.value = 0;
     count = 0;
     return
@@ -60,7 +68,7 @@ const reset = () => {
 const printText = (nombreDelLocal, nombredelPropietario, ciudad, direccion, cheques, codigo, puntos, local, text) => {
     correo.innerHTML += `<p>Buenas Señora Melissa.</p>
     </br>
-    <p>El cliente con ficha N° <strong>${codigo}</strong> cuenta a la fecha con <strong>${puntos}</strong> puntos, solicita <strong>${cheques}</strong> ${text} SOMOS.</p>
+    <p>El cliente con ficha <strong>N° ${codigo}</strong> cuenta a la fecha con <strong>${puntos}</strong> puntos, solicita <strong>${cheques}</strong> ${text} SOMOS.</p>
     </br>
     <p>CÓDIGOS OTORGADOS: </p>
     <br></br>
