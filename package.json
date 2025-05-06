@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Esteban3025/PREPARARCHEQUES#readme",
   "dependencies": {
+    "autonumeric": "^4.10.8",
     "express": "^5.1.0"
   }
 }

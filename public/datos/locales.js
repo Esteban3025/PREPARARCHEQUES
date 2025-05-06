@@ -5846,7 +5846,7 @@ export let locales = [
             "ndp": "LUIS VERA",
             "ruc": "2695123-1",
             "ciudad": "ATYRA",
-            "direccion": "https://maps.app.goo.gl/xHrWFmALoDc8wG3b6",
+            "direccion": "PR8F+4VV Atyrá",
             "telefono": "981307861"
         },
         {

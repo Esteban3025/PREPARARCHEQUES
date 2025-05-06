@@ -33,7 +33,7 @@ body {
     gap: 1rem;
 }
 
-#make-btn, #download-btn, #reset-btn {
+#make-btn, #download-btn, #reset-btn, #send-code-btn {
     background-color: var(--font-color);
     color: var(--btn-color);
     font-weight: bold;
@@ -124,4 +124,5 @@ body {
     background-color: white;
     color: black;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
